@@ -1,7 +1,7 @@
 FROM jlesage/baseimage-gui:ubuntu-22.04-v4
 
 ENV APP_NAME        "115pc"
-ENV APP_VERSION     "2.0.9.3"
+ENV APP_VERSION     "2.0.10.2"
 # ENV USER_ID         0
 # ENV GROUP_ID        0
 ENV TZ              Asia/Shanghai
@@ -14,7 +14,7 @@ RUN sed -i 's@//.*archive.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.l
 RUN apt update && apt install -y \
       curl libgl1 libglib2.0-0
 
-RUN curl https://down.115.com/client/115pc/lin/115pc_${APP_VERSION}.deb -o /tmp/115pc.deb
+RUN curl https://down.115.com/client/115pc/lin/115_v${APP_VERSION}.deb -o /tmp/115pc.deb
 RUN dpkg -i /tmp/115pc.deb
 
 COPY startapp.sh /startapp.sh
