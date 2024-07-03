@@ -14,7 +14,7 @@ RUN sed -i 's@//.*archive.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.l
 RUN apt update && apt install -y \
       curl libgl1 libglib2.0-0
 
-RUN curl https://down.115.com/client/115pc/lin/115_v${APP_VERSION}.deb -o /tmp/115pc.deb
+RUN curl -L https://down.115.com/client/115pc/lin/115_v${APP_VERSION}.deb -o /tmp/115pc.deb
 RUN dpkg -i /tmp/115pc.deb
 
 COPY startapp.sh /startapp.sh
